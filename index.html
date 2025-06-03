@@ -13,12 +13,41 @@
         <form class="login-form" onsubmit="return login(event)">
             <h2>Bem-vindo</h2>
             <input type="text" id="username" placeholder="Usuário" required />
-            <input type="password" id="password" placeholder="Senha" required />
+            <div style="position: relative;">
+                <input type="password" id="password" placeholder="Senha" required />
+                <button type="button" onclick="togglePassword()" style="position: absolute; right: 0; top: 0;">👁️</button>
+            </div>
             <button type="submit">Entrar</button>
             <p id="error-message"></p>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        }
+
+        function login(event) {
+            event.preventDefault();
+            // Lógica de login fictícia só como exemplo
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const error = document.getElementById('error-message');
+
+            if (username === "admin" && password === "1234") {
+                error.textContent = "";
+                alert("Login bem-sucedido!");
+            } else {
+                error.textContent = "Usuário ou senha incorretos.";
+            }
+
+            return false;
+        }
+    </script>
 </body>
 
 </html>
