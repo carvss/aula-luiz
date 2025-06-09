@@ -30,7 +30,6 @@
       color: #333;
     }
 
-    /* Evita que o botão tenha borda própria e sobrescreva o layout */
     .toggle-password:focus {
       outline: none;
     }
@@ -59,24 +58,9 @@
       const passwordInput = document.getElementById("password");
       passwordInput.type = passwordInput.type === "password" ? "text" : "password";
     }
-
-    function login(event) {
-      event.preventDefault();
-
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      const error = document.getElementById("error-message");
-
-      if (username === "admin" && password === "1234") {
-        error.textContent = "";
-        alert("Login bem-sucedido!");
-      } else {
-        error.textContent = "Usuário ou senha incorretos.";
-      }
-
-      return false;
-    }
   </script>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
