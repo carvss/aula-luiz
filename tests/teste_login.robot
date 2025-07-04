@@ -17,6 +17,7 @@ Login Com Sucesso
     Input Text      id=password      ${VALID_PASSWORD}
     Click Button    xpath=//button
     Wait Until Location Contains    dashboard.html    5s
+    Capture Page Screenshot
     Close Browser
 
 Login Com Usuário Inválido
@@ -26,6 +27,7 @@ Login Com Usuário Inválido
     Click Button    xpath=//button
     Wait Until Element Is Visible    id=error-message    5s
     Element Text Should Be    id=error-message    Usuário ou senha incorretos.
+    Capture Page Screenshot
     Close Browser
 
 Login Com Senha Inválida
@@ -35,4 +37,5 @@ Login Com Senha Inválida
     Click Button    xpath=//button
     Wait Until Element Is Visible    id=error-message    5s
     Element Text Should Be    id=error-message    Usuário ou senha incorretos.
+    Capture Page Screenshot
     Close Browser
