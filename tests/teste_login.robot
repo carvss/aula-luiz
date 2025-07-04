@@ -16,8 +16,7 @@ Login Com Sucesso
     Input Text      id=username      ${VALID_USER}
     Input Text      id=password      ${VALID_PASSWORD}
     Click Button    xpath=//button
-    Sleep           1s
-    Location Should Contain    dashboard.html
+    Wait Until Location Contains    dashboard.html    5s
     Close Browser
 
 Login Com Usuário Inválido
@@ -25,7 +24,7 @@ Login Com Usuário Inválido
     Input Text      id=username      ${INVALID_USER}
     Input Text      id=password      ${VALID_PASSWORD}
     Click Button    xpath=//button
-    Sleep           1s
+    Wait Until Element Is Visible    id=error-message    5s
     Element Text Should Be    id=error-message    Usuário ou senha incorretos.
     Close Browser
 
@@ -34,6 +33,6 @@ Login Com Senha Inválida
     Input Text      id=username      ${VALID_USER}
     Input Text      id=password      ${INVALID_PASSWORD}
     Click Button    xpath=//button
-    Sleep           1s
+    Wait Until Element Is Visible    id=error-message    5s
     Element Text Should Be    id=error-message    Usuário ou senha incorretos.
     Close Browser

@@ -35,14 +35,19 @@ jobs:
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
           chmod +x /usr/local/bin/chromedriver
 
-      - name: Executar testes com Xvfb (modo headless)
+      - name: Subir servidor HTTP e rodar testes (headless)
         run: |
           Xvfb :99 & export DISPLAY=:99
           python3 -m http.server 8000 &
-          sleep 2
+          # Aguarda o servidor estar de pé antes de rodar o Robot
+          for i in {1..10}; do
+            nc -z localhost 8000 && break
+            echo "Aguardando servidor subir..."
+            sleep 1
+          done
           robot --variable LOGIN_PAGE:http://localhost:8000/index.html tests
 
-      - name: Salvar relatório
+      - name: Salvar relatório Robot Framework
         uses: actions/upload-artifact@v4
         with:
           name: robot-report
