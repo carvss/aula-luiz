@@ -14,7 +14,7 @@
             justify-content: center;
             height: 100vh;
         }
-        h1 { color: #2575fc; margin: 10px 0; }
+        h1 { color: #072d6e; margin: 10px 0; }
         button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -29,6 +29,12 @@
     </style>
 </head>
 <body>
+    <script>
+        // Bloquear acesso direto ao dashboard se não estiver logado
+        if (localStorage.getItem('loggedIn') !== 'yes') {
+            window.location.href = 'index.html';
+        }
+    </script>
     <h1>Bem-vindo ao Dashboard!</h1>
     <button onclick="logout()">Sair</button>
     <script>
