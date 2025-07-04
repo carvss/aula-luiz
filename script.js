@@ -13,4 +13,4 @@ function login(event) {
         localStorage.setItem('loggedIn', 'yes');
         window.location.href = "dashboard.html";
     }
-}
+ 
